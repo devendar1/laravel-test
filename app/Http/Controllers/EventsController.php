@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Date;
+use App\Models\Workshop;
 
 class EventsController extends BaseController
 {
@@ -101,7 +102,10 @@ class EventsController extends BaseController
      */
 
     public function getEventsWithWorkshops() {
-        throw new \Exception('implement in coding task 1');
+        $events = $this->getWarmupEvents();
+        $event_workshops = Workshop::with('events')->get()->toArray();
+        return $event_workshops;
+        throw new \Exception('implement in coding task 1');        
     }
 
 
