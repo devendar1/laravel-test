@@ -11,7 +11,7 @@ class Workshop extends Model
 {
     public function events()
     {
-        return $this->hasMany('App\Models\Event', 'id');
+        return $this->hasMany('App\Models\Event', 'id', 'event_id');
     }
 
 }
